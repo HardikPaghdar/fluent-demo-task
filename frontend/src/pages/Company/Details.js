@@ -50,7 +50,7 @@ function Details() {
                                 <p className="text-gray-700 text-lg mb-4">Address: {company.address}</p>
                                 <p className="text-gray-700 text-lg mb-4">Associated Persons: {company?.person?.map((per,key) => {
                                     return (
-                                        <div
+                                        <div key={key}
                                             className="ml-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 rounded-full bg-white text-gray-700 border">
                                             {per.first_name+" "+per.last_name}
                                         </div>

@@ -36,9 +36,8 @@ function List() {
         toast.error(responseData.meta.message);
       }
     }).catch((error) => {
-      console.error("Error:", error);
       toast.error("An error occurred while deleting peoples data");
-    });;
+    });
   }
 
   return (
