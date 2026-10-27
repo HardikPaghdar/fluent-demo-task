@@ -6,31 +6,23 @@ A full-stack demo application with a React frontend and an Express/Mongoose back
 
 - `frontend/` — React application
 - `backend/` — Express API and MongoDB integration
-- `postman_collection/` — Postman collection (if present in the checked-out branch)
+- `postman_collection/` — Postman collection, where present in this branch
 
 ## Requirements
 
-- Node.js 18 or a compatible version supported by the installed dependencies
-- npm
-- MongoDB for the backend
-- A configured backend environment file and frontend API base URL
+- Node.js/npm compatible with the installed dependencies
+- MongoDB
+- Backend environment configuration and a frontend API base URL
 
 ## Start the backend
 
 ```bash
 cd backend
 npm install
-```
-
-Create `backend/.env` locally using the backend's required settings. Use placeholder values in any example file and never commit live credentials or private connection strings.
-
-Start the API:
-
-```bash
 npm start
 ```
 
-The backend defaults to port `9999` unless `PORT` is set. Check `backend/Configs/db.config.js` for the database variables expected by this version.
+The backend defaults to port `9999` unless `PORT` is set. Check `backend/Configs/db.config.js` for the database variables expected by this version. Create a local `backend/.env` file and configure it with your own development values.
 
 ## Start the frontend
 
@@ -43,14 +35,12 @@ cp .env.example .env
 npm start
 ```
 
-Set `REACT_APP_API_KEY` to the **API base URL** used by this demo, as documented in the frontend environment example. The variable name is historical; do not place a private API secret in a React environment variable, because values compiled into a browser application are visible to users.
+The frontend example uses `REACT_APP_API_KEY` as a historical variable name for the API base URL. Do not put a private API secret in a React environment variable: values bundled into a browser application are visible to users.
 
-## Current limitations
+## Security and limitations
 
+- The tracked frontend `.env` file has been removed. Keep local environment files untracked; the frontend ignore rules exclude local environment configuration.
+- If the removed value was ever a credential, rotate it. Removing a file does not erase it from Git history.
 - The backend package does not define an automated test suite yet.
-- Configure CORS and authentication appropriately before exposing the API publicly.
-- Verify all required environment variables and API routes against the current implementation before deployment.
-
-## Security follow-up
-
-A frontend `.env` file is still present in the repository because the automated removal action was blocked. Review its value, remove it from version control, and rotate it if it is a credential. The replacement `.env.example` contains only a local API URL placeholder. Deleting a file does not remove it from Git history.
+- Configure CORS, authentication, authorization, and error handling before exposing the API publicly.
+- Verify API routes and required variables against the current implementation before deployment.
