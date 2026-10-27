@@ -19,10 +19,11 @@ A full-stack demo application with a React frontend and an Express/Mongoose back
 ```bash
 cd backend
 npm install
+cp env.example .env
 npm start
 ```
 
-The backend defaults to port `9999` unless `PORT` is set. Check `backend/Configs/db.config.js` for the database variables expected by this version. Create a local `backend/.env` file and configure it with your own development values.
+The backend defaults to port `9999` unless `PORT` is set. Review `Configs/db.config.js` for the database variables expected by this version. Replace the example JWT secret with a long random local value before using authenticated routes.
 
 ## Start the frontend
 
