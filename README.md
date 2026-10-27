@@ -30,7 +30,7 @@ Start the API:
 npm start
 ```
 
-The backend package script starts the server through nodemon. Confirm the port and required environment variables in `backend/server.js` and its configuration before connecting the frontend.
+The backend defaults to port `9999` unless `PORT` is set. Check `backend/Configs/db.config.js` for the database variables expected by this version.
 
 ## Start the frontend
 
@@ -51,6 +51,6 @@ Set `REACT_APP_API_KEY` to the **API base URL** used by this demo, as documented
 - Configure CORS and authentication appropriately before exposing the API publicly.
 - Verify all required environment variables and API routes against the current implementation before deployment.
 
-## Security
+## Security follow-up
 
-A frontend `.env` file was removed from version control because it contained a configured API-related value. If that value was a credential rather than a public base URL, rotate it. Deleting a file does not remove it from Git history.
+A frontend `.env` file is still present in the repository because the automated removal action was blocked. Review its value, remove it from version control, and rotate it if it is a credential. The replacement `.env.example` contains only a local API URL placeholder. Deleting a file does not remove it from Git history.
